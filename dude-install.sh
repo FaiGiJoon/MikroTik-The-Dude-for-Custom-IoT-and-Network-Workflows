@@ -3,7 +3,7 @@
 # ============================================================================ #
 # The Dude Client for Mikrotik installer on Linux.                             #
 # dude-install.sh                                                              #
-# Autor: danielcshn                                                            #
+# Author: danielcshn                                                           #
 # URL: https://github.com/danielcshn                                           #
 # ============================================================================ #
 # Version: v0.9 (20240424)                                                     #
@@ -13,7 +13,7 @@
 #
 # This Script comes with ABSOLUTELY NO WARRANTY!
 #
-# High Intensty Colors Used:
+# High Intensity Colors Used:
 # https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124#file-bash-colors-md
 
 Black="\e[0;90m"
@@ -99,7 +99,7 @@ function installLinuxMint21() {
       wget -q -nc -O /usr/share/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
     fi
 
-    file2=/etc/apt/sources.list.d/winehq-bullseye.sources
+    file2=/etc/apt/sources.list.d/winehq-jammy.sources
     if ! [ -f "$file2" ]; then
       wget -q -nc -P /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
     fi
