@@ -60,6 +60,14 @@ if [ ! -f "\$DUDE_EXE" ] && [ ! -f "\$DUDE_EXE_X86" ]; then
     echo "Installation complete."
 fi
 
+# Determine installed path
+TARGET_EXE="\$DUDE_EXE"
+TARGET_PATH="\$WINEPREFIX/drive_c/Program Files/Dude"
+if [ ! -f "\$TARGET_EXE" ] && [ -f "\$DUDE_EXE_X86" ]; then
+    TARGET_EXE="\$DUDE_EXE_X86"
+    TARGET_PATH="\$WINEPREFIX/drive_c/Program Files (x86)/Dude"
+fi
+
 # Create desktop shortcut
 mkdir -p /home/\$USER/Desktop
 cat <<EOT > /home/\$USER/Desktop/TheDude.desktop
@@ -68,9 +76,9 @@ Version=1.0
 Type=Application
 Name=The Dude
 Comment=Mikrotik The Dude Client
-Exec=wine "\$DUDE_EXE"
+Exec=wine "\$TARGET_EXE"
 Icon=wine
-Path=/config/.wine/drive_c/Program Files/Dude
+Path=\$TARGET_PATH
 Terminal=false
 StartupNotify=false
 EOT
