@@ -38,7 +38,7 @@ Open your browser and navigate to:
 `https://localhost:6901` (or `https://<YOUR_SERVER_IP>:6901`)
 
 * **Username**: `kasm_user`
-* **Password**: `password` (configurable via `docker-compose.yml`)
+* **Password**: set via the `VNC_PW` variable (required; see `docker-compose.yml`)
 
 > **Note on SSL Certificates**: Since KasmVNC uses self-signed certificates by default, your browser may display a security warning. Click "Advanced" and proceed to the site.
 
@@ -93,7 +93,7 @@ Configure container parameters in `docker-compose.yml`:
 | Environment Variable | Default | Description |
 | :--- | :--- | :--- |
 | `DUDE_VERSION` | `7.15` | The version of Mikrotik The Dude Client installer to download |
-| `VNC_PW` | `password` | Password for the KasmVNC web session |
+| `VNC_PW` | _(required)_ | Password for the KasmVNC web session; compose refuses to start without it |
 
 ---
 
