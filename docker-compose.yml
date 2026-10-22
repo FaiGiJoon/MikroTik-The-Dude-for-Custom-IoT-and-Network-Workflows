@@ -9,7 +9,7 @@ services:
       - "6901:6901"
     environment:
       - DUDE_VERSION=7.15
-      - VNC_PW=password
+      - VNC_PW=${VNC_PW:?Set VNC_PW to a strong password (e.g. in a .env file)}
     volumes:
       - ./config:/config
       - ./custom-tools:/custom-tools
